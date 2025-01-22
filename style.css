@@ -70,6 +70,7 @@ h6 {
   margin: 0;
   padding: 0;
 }
+
 .menu li {
   display: inline-block;
 }
@@ -78,6 +79,17 @@ h6 {
   text-decoration: none;
 }
 
+/* /////////////////////////////////////////////
+* Diminution de logo recherche
+///////////////////////////////////////////////*/
+.recherche__img {
+  width: 20px;
+  height: 20px;
+}
+
+.menu__ul {
+  list-style-type: none;
+}
 /* ///////////////////////////////////////////
 * Les layouts
 /////////////////////////////////////////// */
