@@ -30,6 +30,8 @@ a {
 
 body {
   font-size: 16px;
+  font-family: "Darker Grotesque", serif;
+  background-color: aliceblue;
 }
 
 p {
