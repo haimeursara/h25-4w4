@@ -25,13 +25,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
 * Les règles de base
 /////////////////////////////////////////// */
 a {
-  color: rgb(221, 106, 231);
+  color: rgb(50, 50, 50);
 }
 
 body {
   font-size: 16px;
-  font-family: "Darker Grotesque", serif;
-  background-color: aliceblue;
 }
 
 p {
@@ -65,39 +63,54 @@ h6 {
 /* ///////////////////////////////////////////
 * Les composants
 /////////////////////////////////////////// */
+/* ----------------------------------------- .menu */
 .menu {
-  background-color: #aaa;
-}
-.menu ul {
-  margin: 0;
-  padding: 0;
-}
-
-.menu li {
-  display: inline-block;
-}
-.menu a {
-  color: #333;
-  text-decoration: none;
-}
-
-/* /////////////////////////////////////////////
-* Diminution de logo recherche
-///////////////////////////////////////////////*/
-.recherche__img {
-  width: 20px;
-  height: 20px;
-}
-
-.menu__ul {
+  display: flex;
+  flex-direction: row;
   list-style-type: none;
 }
+.menu__li a {
+  text-decoration: none;
+  padding: 4px;
+}
+
+.recherche {
+  display: flex;
+  height: 1.6rem;
+  width: 14rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.recherche__input {
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.01);
+  flex: 1 0 auto;
+  padding: 3px;
+}
+.recherche__input:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.recherche__input::placeholder {
+  color: rgba(0, 0, 0, 0.2);
+  font-style: italic;
+}
+.recherche__img {
+  flex: 0 0 20px;
+  padding: 3px;
+}
+
 /* ///////////////////////////////////////////
 * Les layouts
 /////////////////////////////////////////// */
 .entete {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.entete__navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .global {
