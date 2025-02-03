@@ -1,0 +1,115 @@
+.galerie {
+    position: relative;
+    text-align: center;
+    z-index: 100;
+    padding: 20px 0;
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        width: 100%;
+    }
+
+    .form__box {
+        position: absolute;
+        top: 60%;  /* Déplace la boîte de formulaire plus bas sur l'écran */
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        width: 90%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: -50px;  /* Ajuste le margin-top pour ajuster la position de la boîte */
+    }
+
+    &__titre {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    &__form {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        max-width: 1000px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+
+    .form__field {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        width: 18%;
+        min-width: 120px;
+    }
+
+    .form__label {
+        font-size: 1rem;
+        color: #333;
+    }
+
+    .form__input {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .form__bouton {
+        padding: 10px 15px;
+        font-size: 1rem;
+        background-color: #5da5f3;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 18%;
+        min-width: 120px;
+        box-sizing: border-box;
+        height: 40px;
+        margin-top: 20px;
+    }
+
+    .form__bouton-container {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    @media screen and (max-width: 768px) {
+        .form__box {
+            top: 50%;  
+            width: 80%;
+            margin-top: -50px;
+        }
+
+        .form__field {
+            width: 100%;
+        }
+
+        .form__bouton-container {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .form__bouton {
+            width: 100%;
+            margin-top: 20px;
+        }
+    }
+}
+
+.hero {
+    min-height: 100vh;
+    background-image: url("images/maldives.jpg");
+    background-size: cover;
+    position: relative;
+}
