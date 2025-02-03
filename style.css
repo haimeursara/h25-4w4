@@ -1,97 +1,137 @@
 @charset "UTF-8";
 /*
-Theme Name: TP1 Haimeur Sara
+Theme Name: 4W4 - Eddy Martin
 Theme URI: https://referenced.ca
-Author: Haimeur Sara
-Author URI: https://github.com/haimeursara
-Description: Thème développé dans le cadre du cours 4w4
+Author: Eddy Martin
+Author URI: https://github.com/eddytuto
+Description: Thème de base développer dans le cadre du cours 4W4
 Version: 1.0
-Requires at least: 6.0
-Tested up to: 5.3
+Tested up to: 6.2
 Requires PHP: 7.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: tp1-hs
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
+Text Domain: 4w4-eddy
 */
-/* ////////////////////////////////////////////
-* Fichier principal de la structure Sass
-//////////////////////////////////////////// */
-/* ///////////////////////////////////////////
-* Les variables
-/////////////////////////////////////////// */
-/* ///////////////////////////////////////////
-* Les règles de base
-/////////////////////////////////////////// */
-a {
-  color: rgb(221, 106, 231);
-}
-
-body {
-  font-size: 16px;
-}
-
-p {
-  font-size: clamp(0.8rem, 1.7vw, 1rem);
-}
-
-h1 {
-  font-size: clamp(2rem, 3vw, 5rem);
-}
-
-h2 {
-  font-size: clamp(1.5rem, 2.5vw, 3rem);
-}
-
-h3 {
-  font-size: clamp(1rem, 2.3vw, 2rem);
-}
-
-h4 {
-  font-size: clamp(0.9rem, 2vw, 1.5rem);
-}
-
-h5 {
-  font-size: clamp(0.9rem, 2vw, 1.3rem);
-}
-
-h6 {
-  font-size: clamp(0.8rem, 1.7vw, 1.2rem);
-}
-
-/* ///////////////////////////////////////////
-* Les composants
-/////////////////////////////////////////// */
+/* /////////////////////
+Les Variables
+//////////////////////// */
+/* /////////////////////////
+Les composants
+/////////////////////////// */
+/* /////////////////////////////////////////// menu principal */
 .menu {
-  background-color: #aaa;
-}
-.menu ul {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
   margin: 0;
   padding: 0;
+  list-style-type: none;
 }
-.menu li {
-  display: inline-block;
+@media screen and (max-width: 700px) {
+  .menu {
+    flex-direction: column;
+  }
 }
-.menu a {
+.menu__a {
   color: #333;
   text-decoration: none;
+  padding: 2px 5px;
 }
 
-/* ///////////////////////////////////////////
-* Les layouts
-/////////////////////////////////////////// */
-.entete {
+/* *******************
+Le composant .carte
+********************** */
+.carte {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+}
+.carte--grande {
+  padding: 40px;
+}
+.carte--petite {
+  padding: 20px;
+}
+.carte__image img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+.carte__contenu {
+  margin-top: 15px;
+}
+.carte__titre {
+  font-size: 24px;
+  color: #333;
+}
+.carte__description {
+  font-size: 16px;
+  color: #666;
+}
+.carte__bouton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.carte__bouton--actif {
+  background-color: #0056b3;
+}
+.carte__bouton:hover {
+  background-color: #0056b3;
+}
+
+.recherche {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.recherche__input {
+  flex: 1;
+  height: 1.8rem;
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-right: 1px dotted rgba(0, 0, 0, 0.2);
+}
+.recherche__input:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+.recherche__img {
+  flex: 0 0 20px;
+  padding: 0 3px;
 }
 
+/* /////////////////////////
+Layout 
+/////////////////////////// */
 .global {
-  max-width: 1100px;
-  padding: 10vh 5vw;
+  margin: 0 auto;
+  max-width: 1000px;
 }
 
 .hero {
-  background-image: url("images/maldives.jpg");
   min-height: 100vh;
+  background-image: url("images/maldives.jpg");
+}
+
+.entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.entete__nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0 40px;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 700px) {
+  .entete__nav {
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=style.css.map */
