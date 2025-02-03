@@ -2,10 +2,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    &__navigation {
+
+    &__nav {
         display: flex;
-        flex-direction: column;
+        @media screen and (max-width:$point__rupture) {
+            flex-direction: column; 
+        }
+        flex-direction: row; 
         align-items: center;
-                                                                   
+        gap: 0 40px;
+        flex-wrap: wrap;
+
     }
 }
+
+

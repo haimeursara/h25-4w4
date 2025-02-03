@@ -1,47 +1,32 @@
 /*
-Theme Name: TP1 Haimeur Sara
+Theme Name: 4W4 - Eddy Martin
 Theme URI: https://referenced.ca
-Author: Haimeur Sara
-Author URI: https://github.com/haimeursara
-Description: Thème développé dans le cadre du cours 4w4
+Author: Eddy Martin
+Author URI: https://github.com/eddytuto
+Description: Thème de base développer dans le cadre du cours 4W4
 Version: 1.0
-Requires at least: 6.0
-Tested up to: 5.3
+Tested up to: 6.2
 Requires PHP: 7.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: tp1-hs
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
+Text Domain: 4w4-eddy
 */
 
-/* ////////////////////////////////////////////
-* Fichier principal de la structure Sass
-//////////////////////////////////////////// */
-/* ///////////////////////////////////////////
-* Les variables
-/////////////////////////////////////////// */
+/* /////////////////////
+Les Variables
+//////////////////////// */
 @import "variables/couleurs";
+@import "variables/dimensions";
 
-/* ///////////////////////////////////////////
-* Les règles de base
-/////////////////////////////////////////// */
-
-@import "base/liens";
-
-@import "base/simple";
-
-/* ///////////////////////////////////////////
-* Les composants
-/////////////////////////////////////////// */
-
+/* /////////////////////////
+Les composants
+/////////////////////////// */
 @import "composants/menu";
+@import "composants/carte";
 @import "composants/recherche";
 
-/* ///////////////////////////////////////////
-* Les layouts
-/////////////////////////////////////////// */
+/* /////////////////////////
+Layout 
+/////////////////////////// */
+@import "layout/principal";
 @import "layout/entete";
-@import "layout/galerie";
-@import "layout/general";
-@import "layout/hero";

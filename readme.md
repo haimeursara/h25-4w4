@@ -1,6 +1,6 @@
-# Exercice #1
-## Concevoir une page d'accueil en HTML/CSS à partir d'une maquette
-### Auteur: Haimeur Sara
-La réalisation de ce prototype représente une première étape pour la conception d'un thème
-WordPress.
-#### Page Github : https://haimeursara.github.io/h25-4w4/
+# Exercice 1
+## Cours: 4W4-Conception d'interface et développement Web
+
+Créer une page d'accueil en utilisant le standard BEM et Sass pour reproduire le contenu de maquette.
+Auteur: Eddy Martin
+### Githyb-page: https://eddytuto.github.io/h25-4w4-gr1/
