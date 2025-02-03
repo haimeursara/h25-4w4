@@ -6,36 +6,49 @@
     <title>4W4-Voyage</title>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="burger.js">
 </head>
 <body>
     <header>
         <div class="entete">
             <figure class="entete__logo">
-                <img src="images/logo.png" alt="logo voyage">
-            </figure>
+                    <img src="images/logo.jpg" alt="logo voyage" width="140px" height="140px">
+                </figure>
+                <button class="burger" aria-label="Menu">
+                    ☰
+                </button>
             <div class="entete__nav">
                 <nav class="entete__menu">
                     <ul class="menu">
                         <li class="menu__li">
-                            <a class="menu__a" href="#">Aventure</a>
+                            <a class="menu__a" href="#">SPORT</a>
                         </li>
                         <li class="menu__li">
-                            <a class="menu__a" href="#">Sportive</a>
+                            <a class="menu__a" href="#">PLEINE NATURE</a>
                         </li>
                         <li class="menu__li">
-                            <a class="menu__a"  href="#">Culturelle</a>
+                            <a class="menu__a"  href="#">CROISIÈRE</a>
                         </li>
                         <li class="menu__li">
-                            <a  class="menu__a" href="#">Zen</a>
+                            <a class="menu__a"  href="#">AVENTURE</a>
                         </li>
                         <li class="menu__li">
-                            <a class="menu__a" href="#">Sportive</a>
+                            <a  class="menu__a" href="#">CULTUREL</a>
                         </li>
                         <li class="menu__li">
-                            <a class="menu__a"  href="#">Culturelle</a>
+                            <a class="menu__a" href="#">REPOS</a>
                         </li>
                         <li class="menu__li">
-                            <a  class="menu__a" href="#">Zen</a>
+                            <a class="menu__a"  href="#">ZEN</a>
+                        </li>
+                        <li class="menu__li">
+                            <a  class="menu__a" href="#">ÉCONOMIQUE</a>
+                        </li>
+                        <li class="menu__li">
+                            <a  class="menu__a" href="#">FAVORITE</a>
+                        </li>
+                        <li class="menu__li">
+                            <a  class="menu__a" href="#">PAYS</a>
                         </li>
                     </ul>
                 </nav>
@@ -89,4 +102,9 @@
         </div>
     </section>
 </body>
+<script>
+    document.querySelector(".burger").addEventListener("click", function() {
+        document.querySelector(".entete__menu").classList.toggle("active");
+    });
+    </script>
 </html>
