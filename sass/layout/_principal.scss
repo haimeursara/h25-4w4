@@ -1,10 +1,23 @@
 .global {
-   margin : 0 auto;
-   max-width: 1000px;
+    margin: 0; /* Supprime la marge automatique */
+    max-width: 1000px;
+    width: 100%; /* S'assure que le conteneur prend toute la largeur disponible */
 }
 
-.hero{
+.hero {
+    display: flex;
+    justify-content: flex-start; /* Aligner le contenu à gauche */
     min-height: 100vh;
     background-image: url("images/maldives.jpg");
     z-index: 100;
+    padding-top: 100px;
+    padding-left: 60px; /* Ajoute un léger espace depuis le bord gauche si nécessaire */
+}
+
+.hero__contenu {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 600px;
 }
