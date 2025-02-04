@@ -39,23 +39,16 @@ Les composants
   padding: 2px 5px;
 }
 
-/* *******************
-Le composant .carte
-********************** */
 .carte {
-  border: 1px solid #ddd;
-  padding: 20px;
+  padding: 50px;
   border-radius: 8px;
-}
-.carte--grande {
-  padding: 40px;
-}
-.carte--petite {
-  padding: 20px;
+  /* Ajustement pour les petits écrans */
 }
 .carte__image img {
-  max-width: 100%;
-  border-radius: 8px;
+  width: 130%; /* L'image prend toute la largeur de son conteneur */
+  height: 190px; /* Hauteur fixe pour toutes les images */
+  object-fit: cover; /* Assure que l'image couvre entièrement le conteneur sans déformation */
+  border-radius: 3px;
 }
 .carte__contenu {
   margin-top: 15px;
@@ -81,6 +74,15 @@ Le composant .carte
 }
 .carte__bouton:hover {
   background-color: #0056b3;
+}
+.carte__images {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 colonnes */
+}
+@media screen and (max-width: 768px) {
+  .carte__images {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur mobile */
+  }
 }
 
 .recherche {
@@ -301,11 +303,4 @@ Layout
     width: 100%;
     margin-top: 20px;
   }
-}
-
-.hero {
-  min-height: 100vh;
-  background-image: url("images/maldives.jpg");
-  background-size: cover;
-  position: relative;
 }/*# sourceMappingURL=style.css.map */
