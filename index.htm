@@ -6,36 +6,52 @@
     <title>4W4-Voyage</title>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <header>
         <div class="entete">
             <figure class="entete__logo">
-                <img src="images/logo.png" alt="logo voyage">
-            </figure>
+                    <img src="images/logo.jpg" alt="logo voyage" width="140px" height="140px">
+                </figure>
+                <button class="burger" aria-label="Menu">
+                    ☰
+                </button>
             <div class="entete__nav">
                 <nav class="entete__menu">
                     <ul class="menu">
                         <li class="menu__li">
-                            <a class="menu__a" href="#">Aventure</a>
+                            <a class="menu__a" href="#">SPORT</a>
                         </li>
                         <li class="menu__li">
-                            <a class="menu__a" href="#">Sportive</a>
+                            <a class="menu__a" href="#">PLEINE NATURE</a>
                         </li>
                         <li class="menu__li">
-                            <a class="menu__a"  href="#">Culturelle</a>
+                            <a class="menu__a"  href="#">CROISIÈRE</a>
                         </li>
                         <li class="menu__li">
-                            <a  class="menu__a" href="#">Zen</a>
+                            <a class="menu__a"  href="#">AVENTURE</a>
                         </li>
                         <li class="menu__li">
-                            <a class="menu__a" href="#">Sportive</a>
+                            <a  class="menu__a" href="#">CULTUREL</a>
                         </li>
                         <li class="menu__li">
-                            <a class="menu__a"  href="#">Culturelle</a>
+                            <a class="menu__a" href="#">REPOS</a>
                         </li>
                         <li class="menu__li">
-                            <a  class="menu__a" href="#">Zen</a>
+                            <a class="menu__a"  href="#">ZEN</a>
+                        </li>
+                        <li class="menu__li">
+                            <a  class="menu__a" href="#">ÉCONOMIQUE</a>
+                        </li>
+                        <li class="menu__li">
+                            <a  class="menu__a" href="#">FAVORITE</a>
+                        </li>
+                        <li class="menu__li">
+                            <a  class="menu__a" href="#">PAYS</a>
                         </li>
                     </ul>
                 </nav>
@@ -51,13 +67,16 @@
     <section class="hero">
         <div class="hero__contenu global">
             <h1 class="hero__titre">
-                Club de voyage
+                Bienvenue à Utopie Voyage!
             </h1>
             <p class="hero__description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur aspernatur est officiis, mollitia minus asperiores quas libero saepe consequuntur at blanditiis et eligendi, sequi sit quae laboriosam, ex delectus nesciunt.
+                Bienvenue chez Utopie Voyage, l’agence qui transforme vos rêves d’évasion en réalité. Parce que voyager, c’est plus qu’un déplacement : c’est une expérience, une découverte, une aventure qui laisse une empreinte inoubliable. Découvrez nos destinations et laissez-vous inspirer par nos suggestions de voyages.
             </p>
+            <a href="" class="hero__numero">
+                514-926-7465
+            </a>
             <a href="" class="hero__courriel">
-                info@cmaisonneuve.qc.ca
+                info@utopievoyage.com
             </a>
             <button class="hero__bouton">
                 Inscription
@@ -71,22 +90,79 @@
         </div>
     </section>
     <section class="galerie">
-        <figure class="galerie__fig">
-            <img src="" alt="">
-        </figure>
+        <div class="galerie__container">
+            <section class="galerie">
+                <div class="galerie__container">
+                    <div class="form__box">
+                        <form class="galerie__form">
+                            <div class="form__field">
+                                <label for="nom" class="form__label">Nom</label>
+                                <input type="text" id="nom" class="form__input" placeholder="Écrivez votre nom">
+                            </div>
+                            <div class="form__field">
+                                <label for="prenom" class="form__label">Prénom</label>
+                                <input type="text" id="prenom" class="form__input" placeholder="Écrivez votre prénom">
+                            </div>
+                            <div class="form__field">
+                                <label for="courriel" class="form__label">Courriel</label>
+                                <input type="email" id="courriel" class="form__input" placeholder="Écrivez votre courriel">
+                            </div>
+                            <div class="form__field">
+                                <label for="telephone" class="form__label">Téléphone</label>
+                                <input type="tel" id="telephone" class="form__input" placeholder="Écrivez votre téléphone">
+                            </div>
+                            <button type="submit" class="form__bouton">S'inscrire</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
     </section>
+    
+    
  
     <section class="promotion">
         <div class="carte carte--grande">
-            <figure class="carte__image">
-                <img src="images/img1.jpg" alt="Image de voyage">
-            </figure>
-            <div class="carte__contenu">
-                <h2 class="carte__titre">Destination de rêve</h2>
-                <p class="carte__description">Découvrez des endroits magnifiques à travers le monde.</p>
-                <button class="carte__bouton carte__bouton--actif">Réserver</button>
+            <div class="carte__images">
+                <figure class="carte__image">
+                    <img src="images/img1.jpg" alt="Image de voyage">
+                </figure>
+                <figure class="carte__image">
+                    <img src="images/img2.jpg" alt="Image de voyage">
+                </figure>
+                <figure class="carte__image">
+                    <img src="images/img3.jpg" alt="Image de voyage">
+                </figure>
+                <figure class="carte__image">
+                    <img src="images/img4.jpg" alt="Image de voyage">
+                </figure>
+                <figure class="carte__image">
+                    <img src="images/img5.webp" alt="Image de voyage">
+                </figure>
+                <figure class="carte__image">
+                    <img src="images/img6.webp" alt="Image de voyage">
+                </figure>
+                <figure class="carte__image">
+                    <img src="images/img7.webp" alt="Image de voyage">
+                </figure>
+                <figure class="carte__image">
+                    <img src="images/img8.webp" alt="Image de voyage">
+                </figure>
+                <figure class="carte__image">
+                    <img src="images/img9.webp" alt="Image de voyage">
+                </figure>
+                <figure class="carte__image">
+                    <img src="images/img10.jpg" alt="Image de voyage">
+                </figure>
             </div>
         </div>
     </section>
+    
 </body>
+<script>
+    document.querySelector(".burger").addEventListener("click", function() {
+        document.querySelector(".entete__menu").classList.toggle("active");
+    });
+    </script>
 </html>
