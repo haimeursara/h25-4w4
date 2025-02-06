@@ -1,9 +1,11 @@
-.entete{
+.entete {
+    font-family: "Montserrat", serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 80px;
+
     &__nav {
         display: flex;
         @media screen and (max-width:$point__rupture) {
@@ -13,19 +15,25 @@
         align-items: center;
         gap: 0 50px;
         flex-wrap: wrap;
-
     }
+
     .entete__logo img {
         width: 80px;
         height: auto; 
     }
+
     .burger {
         display: none;
         font-size: 24px;
         background: none;
         border: none;
         cursor: pointer;
+        position: absolute;
+        top: 20px;  
+        right: 20px; 
+        z-index: 1000; 
     }
+
     &__menu {
         display: flex;
 
@@ -46,6 +54,7 @@
             }
         }
     }
+
     @media screen and (max-width: $point__rupture) {
         .burger {
             display: block;
@@ -89,11 +98,8 @@
             display: flex;
         }
 
-    
         .entete__recherche {
             display: none;
         }
     }
 }
-
-

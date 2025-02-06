@@ -1,9 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; 
+}
+
 .galerie {
     position: relative;
     text-align: center;
     z-index: 100;
     padding: 20px 0;
-
+    font-family: "Montserrat", serif;
     &__container {
         max-width: 1200px;
         margin: 0 auto;
@@ -13,7 +24,7 @@
 
     .form__box {
         position: absolute;
-        top: 60%;  /* Déplace la boîte de formulaire plus bas sur l'écran */
+        top: 60%; 
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
         background-color: rgba(255, 255, 255, 0.8);
@@ -21,7 +32,7 @@
         border-radius: 10px;
         width: 90%;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin-top: -50px;  /* Ajuste le margin-top pour ajuster la position de la boîte */
+        margin-top: -50px;  
     }
 
     &__titre {
@@ -83,27 +94,40 @@
         justify-content: space-between;
         width: 100%;
     }
-
     @media screen and (max-width: 768px) {
         .form__box {
             top: 50%;  
-            width: 80%;
-            margin-top: -50px;
+            width: 75%;
+            margin-top: -80px;
+            padding: 10px;
+            border-radius: 8px;
         }
-
+    
         .form__field {
             width: 100%;
+            gap: 1px;
+            margin-bottom: 5px; 
         }
-
-        .form__bouton-container {
-            width: 100%;
-            justify-content: center;
+    
+        .form__label {
+            font-size: 0.85rem;
         }
-
+    
+        .form__input {
+            padding: 6px;
+            font-size: 0.85rem;
+            border-radius: 4px;
+        }
+    
         .form__bouton {
             width: 100%;
-            margin-top: 20px;
+            margin-top: 10px;
+            padding: 6px;
+            font-size: 0.85rem;
+            height: 30px;
+            border-radius: 4px;
         }
     }
+    
+    
 }
-
