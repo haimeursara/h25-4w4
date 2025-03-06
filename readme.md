@@ -1,6 +1,9 @@
-# Exercice #1
-## Concevoir une page d'accueil en HTML/CSS à partir d'une maquette
-### Auteur: Haimeur Sara
-La réalisation de ce prototype représente une première étape pour la conception d'un thème
-WordPress.
-#### Page Github : https://haimeursara.github.io/h25-4w4/
+# TP1
+
+## Concevoir un site Wordpress pour un club de voyage
+
+### Auteur: Sara Haimeur
+
+La réalisation de ce thème permettra d'optimiser la présentation d'un contenu spécifique sur différentes destination de voyages.
+
+#### Site en ligne sur WHC: https://gftnth00.mywhc.ca/4w4_22/

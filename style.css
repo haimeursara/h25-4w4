@@ -1,372 +1,189 @@
 @charset "UTF-8";
 /*
-Theme Name: 4W4 - Haimeur Sara
+Theme Name: TP1 Sara Haimeur
 Theme URI: https://referenced.ca
-Author: Haimeur Sara
+Author: Sara Haimeur
 Author URI: https://github.com/haimeursara
-Description: Thème de base développer dans le cadre du cours 4W4
+Description: Thème développé dans le cadre du cours 4w4
 Version: 1.0
-Tested up to: 6.2
+Requires at least: 6.0
+Tested up to: 5.3
 Requires PHP: 7.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: 4w4-eddy
+Text Domain: tp1-sh
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
 */
-/* /////////////////////
-Les Variables
-//////////////////////// */
-/* /////////////////////////
+/* /////////////////////////////////
+Les variables
+//////////////////////////////////// */
+/* /////////////////////////////////
+Les balise de bases
+//////////////////////////////////// */
+body {
+  font-size: 16px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+h1 {
+  font-size: clamp(2rem, 3vw, 5rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1rem, 2.3vw, 2rem);
+}
+
+h4 {
+  font-size: clamp(0.9rem, 2vw, 1.5rem);
+}
+
+h5 {
+  font-size: clamp(0.9rem, 2vw, 1.3rem);
+}
+
+h6 {
+  font-size: clamp(0.8rem, 1.7vw, 1.2rem);
+}
+
+p {
+  font-size: clamp(0.8rem, 1.7vw, 1rem);
+}
+
+/* /////////////////////////////////
 Les composants
-/////////////////////////// */
-/* /////////////////////////////////////////// menu principal */
+//////////////////////////////////// */
+/* ----------------------------------------- .menu */
 .menu {
-  flex: 1 1 50%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  margin: 0;
-  padding: 0;
   list-style-type: none;
+  gap: 10px 0;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   .menu {
     flex-direction: column;
   }
 }
-.menu__a {
-  color: #333;
+.menu-item a {
   text-decoration: none;
-  padding: 2px 5px;
+  padding: 4px;
 }
 
-.promotion {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px 20px;
-}
-
-.carte {
-  max-width: 1200px;
-  width: 100%;
-  padding: 30px;
-  border-radius: 8px;
-  background: #f9f9f9;
-  text-align: center;
-}
-
-.carte__images {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 15px;
-  justify-content: center;
-}
-
-.carte__image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 5px;
-}
-
-.carte__image img {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
-/* Ajustement pour les petits écrans */
-@media screen and (max-width: 768px) {
-  .carte__images {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-  .carte {
-    padding: 20px;
-  }
-}
 .recherche {
   display: flex;
-  align-items: center;
-  font-size: 1.2rem;
+  height: 1.6rem;
+  width: 14rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .recherche__input {
-  flex: 1;
-  height: 1.8rem;
   border: none;
   outline: none;
-  background-color: rgba(0, 0, 0, 0.02);
-  border-right: 1px dotted rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.01);
+  flex: 1 0 auto;
+  padding: 3px;
 }
 .recherche__input:hover {
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.recherche__input::placeholder {
+  color: rgba(0, 0, 0, 0.2);
+  font-style: italic;
 }
 .recherche__img {
   flex: 0 0 20px;
-  padding: 0 3px;
+  padding: 3px;
 }
 
-/* /////////////////////////
-Layout 
-/////////////////////////// */
-.global {
-  margin: 0;
-  max-width: 1000px;
-  width: 100%;
-  font-family: "Montserrat", serif;
-}
-
-.hero {
-  display: flex;
-  justify-content: flex-start;
-  min-height: 100vh;
-  background-image: url("images/maldives.jpg");
-  z-index: 100;
-  padding-top: 100px;
-  padding-left: 60px;
-}
-
-.hero__contenu {
-  text-align: left;
+.carte {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  max-width: 600px;
+  justify-content: space-between;
+}
+.carte--grande {
+  flex: 1 1 250px;
+}
+.carte__image img {
+  width: 100%;
+}
+.carte__contenu {
+  background-color: aliceblue;
+}
+/* /////////////////////////////////
+Les layouts
+//////////////////////////////////// */
+.global {
+  max-width: 1100px;
+  padding: 10vh 5vw;
 }
 
-.hero__bouton {
-  padding: 10px 15px;
-  font-size: 1rem;
-  background-color: #5da5f3;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 18%;
-  min-width: 120px;
-  box-sizing: border-box;
-  height: 40px;
-  margin-top: 20px;
-}
-
-.hero__icone-app {
-  margin-top: 20px;
+.populaire .global {
   display: flex;
-  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .entete {
-  font-family: "Montserrat", serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  height: 80px;
 }
-.entete__nav {
-  display: flex;
+.entete__navigation {
+  width: auto;
+  position: static;
   flex-direction: row;
+  background-color: transparent;
+  display: flex;
   align-items: center;
-  gap: 0 50px;
-  flex-wrap: wrap;
 }
-@media screen and (max-width: 700px) {
-  .entete__nav {
-    flex-direction: column;
-  }
-}
-.entete .entete__logo img {
-  width: 80px;
-  height: auto;
-}
-.entete .burger {
-  display: none;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-}
-.entete__menu {
-  display: flex;
-}
-.entete__menu .menu {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.entete__menu .menu__li {
-  padding: 0 10px;
-}
-.entete__menu .menu__a {
-  text-decoration: none;
-  color: #333;
-  padding: 5px;
-}
-@media screen and (max-width: 700px) {
-  .entete .burger {
-    display: block;
-  }
-  .entete__menu {
+@media screen and (max-width: 800px) {
+  .entete__navigation {
     position: absolute;
-    top: 60px;
+    top: 0;
     right: 0;
-    background: white;
-    width: 100%;
+    background-color: #fff;
+    padding: 20px;
     flex-direction: column;
-    align-items: center;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-    display: none;
-  }
-  .entete__menu .menu {
-    flex-direction: column;
-    width: 100%;
-  }
-  .entete__menu .menu__li {
-    text-align: center;
-    width: 100%;
-    padding: 10px 0;
-  }
-  .entete__menu .menu__a {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    color: #333;
-  }
-  .entete__menu .menu__a:hover {
-    background: #f4f4f4;
-  }
-  .entete__menu.active {
-    display: flex;
-  }
-  .entete .entete__recherche {
-    display: none;
+    width: 100vw;
   }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.hero {
+  background-image: url("images/maldives.jpg");
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
-html, body {
-  width: 100%;
-  overflow-x: hidden;
+/*
+  --------------------------------- Layout du pied de page
+*/
+footer {
+  background-color: rgb(236, 136, 13);
+  color: #000;
 }
 
-.galerie {
-  position: relative;
-  text-align: center;
-  z-index: 100;
-  padding: 20px 0;
-  font-family: "Montserrat", serif;
-}
-.galerie__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  width: 100%;
-}
-.galerie .form__box {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border-radius: 10px;
-  width: 90%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: -50px;
-}
-.galerie__titre {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-.galerie__form {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  max-width: 1000px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-}
-.galerie .form__field {
+.piedpage {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  width: 18%;
-  min-width: 120px;
 }
-.galerie .form__label {
-  font-size: 1rem;
-  color: #333;
-}
-.galerie .form__input {
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-  box-sizing: border-box;
-}
-.galerie .form__bouton {
-  padding: 10px 15px;
-  font-size: 1rem;
-  background-color: #5da5f3;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 18%;
-  min-width: 120px;
-  box-sizing: border-box;
-  height: 40px;
-  margin-top: 20px;
-}
-.galerie .form__bouton-container {
+.piedpage__s1 {
   display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  flex-wrap: wrap;
+  gap: 3rem;
 }
-@media screen and (max-width: 768px) {
-  .galerie .form__box {
-    top: 50%;
-    width: 75%;
-    margin-top: -80px;
-    padding: 10px;
-    border-radius: 8px;
-  }
-  .galerie .form__field {
-    width: 100%;
-    gap: 1px;
-    margin-bottom: 5px;
-  }
-  .galerie .form__label {
-    font-size: 0.85rem;
-  }
-  .galerie .form__input {
-    padding: 6px;
-    font-size: 0.85rem;
-    border-radius: 4px;
-  }
-  .galerie .form__bouton {
-    width: 100%;
-    margin-top: 10px;
-    padding: 6px;
-    font-size: 0.85rem;
-    height: 30px;
-    border-radius: 4px;
-  }
+.piedpage__s1__externe {
+  flex: 0 0 20%;
+}
+.piedpage__s1__externe .menu {
+  display: flex;
+  flex-direction: column;
+}
+.piedpage__s1__adresse {
+  flex: 0 0 40%;
+}
+.piedpage__s1__description {
+  flex: 1 0 400px;
 }/*# sourceMappingURL=style.css.map */
