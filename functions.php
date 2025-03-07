@@ -41,6 +41,6 @@ function modifie_requete_principal( $query ) {
       }
      }
      add_action( 'pre_get_posts', 'modifie_requete_principal' );
-
+    
 
 ?>

@@ -1,28 +1,58 @@
-.entete{
+/* --------------------------------- Layout de l'entête */
+.entete {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    &__navigation {
-        @media screen and (max-width: 800px) {
-            position : absolute;
-            top:0;
-            right:0;
-            background-color: #fff;
-            padding : 20px;
-            flex-direction: column; 
-            width : 100vw;
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    &__logo {
+        flex: 0 1 150px;
+        img {
+            max-width: 100%;
+            height: auto;
         }
-        width : auto;
-        position : static;
-        flex-direction: row; 
-        background-color: transparent;
+    }
 
-
-
-
+    &__navigation {
         display: flex;
-        
         align-items: center;
-                                                                   
+        gap: 2rem;
+
+        @media screen and (max-width: 800px) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #fff;
+            padding: 20px;
+            flex-direction: column;
+            width: 100vw;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    &__menu {
+        ul {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            
+            li {
+                a {
+                    text-decoration: none;
+                    color: #000;
+                    font-weight: bold;
+                    transition: color 0.3s;
+                    
+                    &:hover {
+                        color: rgb(255, 211, 80);
+                    }
+                }
+            }
+        }
     }
 }

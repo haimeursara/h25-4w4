@@ -152,7 +152,7 @@ Les layouts
 }
 
 .hero {
-  background-image: url("images/maldives.jpg");
+  background-image: url("images/img4.jpg");
   background-repeat: no-repeat;
   min-height: 100vh;
 }
@@ -161,7 +161,7 @@ Les layouts
   --------------------------------- Layout du pied de page
 */
 footer {
-  background-color: rgb(236, 136, 13);
+  background-color: rgb(255, 208, 151);
   color: #000;
 }
 
