@@ -3,56 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club de voyage</title>
+    <title>Utopie Voyage</title>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div class="entete">
-            <figure class="entete__logo">
-                <img src="" alt="">
+        <div class="entete global">
+            <figure class="entete__logo-box">
+                <img class="entete__logo-img" src="images/logo.png" alt="">
             </figure>
-            <div class="entete__navigation">
-                <nav class="entete__menu">
-                    <ul class="menu">
+
+            <label for="checkbox__burger" class="burger">
+                <img class="burger__img" src="https://s2.svgbox.net/hero-outline.svg?ic=menu&color=000" width="32" height="32">
+            </label>
+            <input type="checkbox" id="checkbox__burger" class="checkbox__burger">
+
+            <div class="entete__nav">
+                <nav class="menu">
+                    <ul class="menu__ul">
                         <li class="menu__li">
-                            <a href="#">Aventure</a>
+                            <a class= "menu__a" href="#">SPORT</a>
                         </li>
                         <li class="menu__li">
-                            <a href="#">Culturel</a>
+                            <a class= "menu__a" href="#">PLEIN NATURE</a>
                         </li>
                         <li class="menu__li">
-                            <a href="#">Zen</a>
+                            <a class= "menu__a" href="#">CROISIÈRE</a>
                         </li>
                         <li class="menu__li">
-                            <a href="#">Sportive</a>
+                            <a class= "menu__a" href="#">AVENTURE</a>
                         </li>
                         <li class="menu__li">
-                            <a href="#">Tourtereau</a>
+                            <a class= "menu__a" href="#">CULTUREL</a>
                         </li>
                         <li class="menu__li">
-                            <a href="#">Aventure</a>
+                            <a class= "menu__a" href="#">REPOS</a>
                         </li>
                         <li class="menu__li">
-                            <a href="#">Culturel</a>
+                            <a class= "menu__a" href="#">ZEN</a>
                         </li>
                         <li class="menu__li">
-                            <a href="#">Zen</a>
+                            <a class= "menu__a" href="#">ÉCONOMIQUE</a>
                         </li>
                         <li class="menu__li">
-                            <a href="#">Sportive</a>
+                            <a class= "menu__a" href="#">FAVORITE</a>
                         </li>
                         <li class="menu__li">
-                            <a href="#">Tourtereau</a>
-                        </li>
-                    </ul>
+                            <a class= "menu__a" href="#">PAYS</a>
+                        </ul>
+                    </li>
                 </nav>
-                <form class="recherche">
-                    <input type="search" placeholder="Rechercher" class="recherche__input">
-                    <img class="recherche__img"  src="https://s2.svgbox.net/hero-outline.svg?ic=search&color=000" width="16" height="16">
-                </form>
-            </div> <!-- fin entete__navigation  -->
+                <div class="recherche">
+                    <form action="" class="recherche-form">
+                        <input type="text" value="Recherche..." class="recherche-input">
+                    </form>
+                    <img class="recherche-icon" src="https://s2.svgbox.net/hero-outline.svg?ic=search&color=000" width="20" height="20">
+                </div>
+            </div>
         </div>
     </header>
     <section class="hero">
@@ -79,19 +87,19 @@
     <main>
         <div class="galerie global">
             <figure class="galerie__figure">
-                <img src="" alt="" class="galerie__img">
+                <img src="./images/img1.jpg" alt="" class="galerie__img">
             </figure>
             <figure class="galerie__figure">
-                <img src="" alt="" class="galerie__img">
+                <img src="./images/img2.jpg" alt="" class="galerie__img">
             </figure>
             <figure class="galerie__figure">
-                <img src="" alt="" class="galerie__img">
+                <img src="./images/img3.jpg" alt="" class="galerie__img">
             </figure>
             <figure class="galerie__figure">
-                <img src="" alt="" class="galerie__img">
+                <img src="./images/img5.webp" alt="" class="galerie__img">
             </figure>
             <figure class="galerie__figure">
-                <img src="" alt="" class="galerie__img">
+                <img src="./images/img6.webp" alt="" class="galerie__img">
             </figure>
         </div>
     </main>
