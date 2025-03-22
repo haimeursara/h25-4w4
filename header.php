@@ -1,36 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Utopie Voyage</title>
-
-    <?php wp_head(); ?>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UTOPIE Voyage</title>
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/normalize.css">
+  <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
+  <?php wp_head(); ?>
 </head>
 <body>
-    <header>
-        <div class="entete global">
-            <figure class="entete__logo-box">
-                <?php
-                if (function_exists('the_custom_logo')) {
-                    the_custom_logo();
-                }
-                ?>
-            </figure>
-            
-            <label for="checkbox__burger" class="burger">
-                <img class="burger__img" src="https://s2.svgbox.net/hero-outline.svg?ic=menu&color=000">
-            </label>
-            <input type="checkbox" id="checkbox__burger" class="checkbox__burger">
+<header class="entete">
+  <figure class="entete__logo">
+    <?php
+      if (function_exists('the_custom_logo') && has_custom_logo()) {
+        the_custom_logo();
+      } else {
+        echo '<img src="' . get_template_directory_uri() . '/images/logo.png" alt="Logo UTOPIE Voyage" height="40">';
+      }
+    ?>
+  </figure>
 
-            <div class="entete__nav">
-                <?php wp_nav_menu(array(
-                    'menu' => 'principal',
-                    'container' => 'nav',
-                    'container_class' => 'entete__menu'
-                )); ?>
-                
-                <?php get_search_form(); ?>
-            </div>
-        </div>
-    </header>
+  <!-- Menu Burger -->
+  <label for="chk__burger" class="burger">
+    <img src="https://s2.svgbox.net/hero-outline.svg?ic=menu" alt="Menu" width="32" height="32">
+  </label>
+  <input type="checkbox" id="chk__burger" class="chk__burger">
+
+  <!-- Navigation -->
+  <nav class="entete__nav">
+    <?php
+      wp_nav_menu(array(
+        'theme_location' => 'principal',
+        'container' => false,
+        'menu_class' => 'menu',
+        'fallback_cb' => false,
+      ));
+    ?>
+  </nav>
+
+  <!-- Recherche -->
+  <div class="entete__recherche">
+    <?php get_search_form(); ?>
+  </div>
+</header>

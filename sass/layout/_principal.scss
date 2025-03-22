@@ -1,0 +1,17 @@
+.global {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.populaire {
+  margin-top: 4vh;
+  margin-bottom: 4vh;
+}
+
+.boite__flex {
+  display: flex;
+  flex: 1 1 250px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 90%;
+}

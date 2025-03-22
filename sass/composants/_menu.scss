@@ -1,17 +1,76 @@
-/* ----------------------------------------- .menu */
-.menu{ // ul
-    display : flex;
-    @media screen and (max-width: 800px) {
+$primary-color: #5D4037;
+$secondary-color: #F57C00;
+$text-color: #FFFFFF;
+$bg-menu: #3E2723;
+$bg-hover: #6D4C41;
+$mobile-breakpoint: 800px;
+$transition: all 0.3s ease-in-out;
+
+// MENU PRINCIPAL
+.menu {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+
+  @media screen and (max-width: $mobile-breakpoint) {
     flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    padding: 20px;
+    background: rgba(62, 39, 35, 0.95);
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70vw;
+    height: 100vh;
+    box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: $transition;
+    backdrop-filter: blur(10px); // Effet flou pour un rendu moderne
+  }
+
+  &-item {
+    display: flex;
+
+    a {
+      text-decoration: none;
+      color: $text-color;
+      font-size: 1.1rem;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: $transition;
+
+      &:hover,
+      &:focus {
+        background-color: $bg-hover;
+        color: $secondary-color;
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      &.active {
+        background-color: $secondary-color;
+        color: #fff;
+      }
     }
-    flex-direction: row;
-    list-style-type: none;
-    gap : 10px 0;
-    &-item{ // li
- 
-       a { //a
-        text-decoration : none;
-        padding : 4px;
-       } 
-    }
+  }
+}
+
+// LOGIQUE DU MENU BURGER
+.chk__burger {
+  display: none;
+
+  &:checked ~ .menu {
+    transform: translateX(0);
+  }
+}
+
+// ADAPTATION POUR MOBILE
+@media screen and (max-width: $mobile-breakpoint) {
+  .menu {
+    align-items: flex-start;
+  }
 }

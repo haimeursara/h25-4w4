@@ -1,12 +1,9 @@
-# README
+# TP1
+## Cours 4W4 Conception d'interface et dev web
 
-## Auteur : Sara Haimeur
-
-## Titre du Projet
-**UTOPIE VOYAGE**
-
-## Description
 La réalisation de ce thème permettra d'optimiser la présentation d'un contenu spécifique sur différentes destination de voyages.
 
-## Lien vers le site hébergé
-https://gftnth00.mywhc.ca/4w4_22/
+Auteur: Haimeur Sara
+
+### Site Github: https://github.com/haimeursara/h25-4w4.git
+### Site WHC: https://gftnth00.mywhc.ca/4w4_22/

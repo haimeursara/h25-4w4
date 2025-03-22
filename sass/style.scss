@@ -15,28 +15,32 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
-/* /////////////////////////////////
-Les variables
-//////////////////////////////////// */
+/* /////////////////// 
+Variables
+/////////////////// */
 @import "variables/couleurs";
+@import "variables/dimensions";
 
-/* /////////////////////////////////
-Les balise de bases
-//////////////////////////////////// */
+/* /////////////////// 
+Base
+/////////////////// */
+@import "base/lien";
 @import "base/simple";
 
-/* /////////////////////////////////
-Les composants
-//////////////////////////////////// */
+/* /////////////////// 
+Composants
+/////////////////// */
+@import "composants/carte";
 @import "composants/menu";
 @import "composants/recherche";
-@import "composants/carte";
+@import "composants/hero";
+@import "composants/galerie";
 
-/* /////////////////////////////////
-Les layouts
-//////////////////////////////////// */
-@import "layout/general";
+/* /////////////////// 
+Layout
+/////////////////// */
 @import "layout/entete";
-@import "layout/galerie";
-@import "layout/hero";
+@import "layout/principal";
 @import "layout/footer";
+//@import "layout/general";
+//@import "layout/hero";

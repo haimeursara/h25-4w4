@@ -1,0 +1,136 @@
+$primary-color: #be6602;
+$secondary-color: #4f3200;
+$background-overlay: rgba(0, 0, 0, 0.5);
+$text-color: #ffffff;
+$button-hover: #532a01;
+$button-border-radius: 8px;
+$transition: all 0.3s ease-in-out;
+$mobile-breakpoint: 800px;
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: url("/images/hero.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
+  }
+
+  &__titre {
+    font-size: 3rem;
+    color: $text-color;
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
+    z-index: 1;
+  }
+
+  &__contenu {
+    position: relative;
+    z-index: 1;
+    max-width: 70%;
+    background-color: rgba(241, 125, 8, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      max-width: 90%;
+      border-radius: 0;
+      padding: 1.5rem;
+    }
+  }
+
+  &__description {
+    width: 60%;
+    font-size: 1.2rem;
+    color: $text-color;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-align: center;
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      width: 80%;
+      font-size: 1rem;
+    }
+  }
+
+  &__liens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p,
+    button {
+      font-weight: bold;
+      margin: 1rem 0;
+    }
+  }
+
+  &__bouton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 220px;
+    border: none;
+    border-radius: $button-border-radius;
+    background-color: $primary-color;
+    color: $text-color;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: $transition;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    animation: bounceEffect 2s infinite;
+
+    &:hover {
+      background-color: $button-hover;
+      transform: translateY(-2px);
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      width: 180px;
+      font-size: 1rem;
+    }
+  }
+
+  &__info-top {
+    margin-top: 5vh;
+    color: $text-color;
+    font-size: 1.1rem;
+  }
+
+  &__info {
+    text-align: center;
+    color: $text-color;
+    font-size: 1rem;
+  }
+
+  @keyframes bounceEffect {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
