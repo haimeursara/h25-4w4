@@ -13,9 +13,9 @@ get_header();
                     </div>
                 </article>
             <?php endwhile; ?>
-            <?php wp_reset_postdata();?>
+            <?php wp_reset_postdata(); ?>
         <?php else : ?>
-            <p class="populaire__message">Aucun article trouvé.</p>
+            <p class="populaire__message">Désolé, aucun contenu disponible pour le moment.</p>
         <?php endif; ?>
     </div>
 </main>
