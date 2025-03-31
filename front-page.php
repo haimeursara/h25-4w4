@@ -96,7 +96,7 @@ get_header();
                     <?php endif; ?>
                     
                 <?php endwhile; ?>
-                <?php wp_reset_postdata(); // Réinitialisation des données globales ?>
+                <?php wp_reset_postdata(); ?>
             <?php else : ?>
                 <p class="populaire__message">Aucun article disponible pour le moment.</p>
             <?php endif; ?>

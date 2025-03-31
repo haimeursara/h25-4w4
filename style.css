@@ -400,16 +400,20 @@ Layout
     position: fixed;
     top: 0;
     right: 0;
-    width: 70vw;
+    width: 75vw;
     height: 100vh;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.98);
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     padding: 10vh 5vw 0;
     transform: translateX(100%);
     gap: 30px;
     justify-content: flex-start;
     align-items: flex-start;
+    transition: transform 0.3s ease-in-out;
   }
+}
+.entete__recherche {
+  margin-left: auto;
 }
 .entete__recherche form {
   display: flex;
@@ -426,13 +430,27 @@ Layout
   border: none;
   cursor: pointer;
 }
+@media screen and (max-width: 768px) {
+  .entete__recherche {
+    width: 100%;
+    margin: 1rem 0;
+    justify-content: center;
+  }
+  .entete__recherche form {
+    width: 100%;
+    justify-content: center;
+  }
+  .entete__recherche form input[type=text] {
+    width: 70%;
+  }
+}
 
 .burger {
   display: none;
   position: absolute;
   top: 20px;
   right: 20px;
-  z-index: 10;
+  z-index: 11;
   cursor: pointer;
 }
 @media screen and (max-width: 768px) {
@@ -444,8 +462,10 @@ Layout
 .chk__burger {
   display: none;
 }
-.chk__burger:checked ~ .entete__nav {
-  transform: translateX(0);
+@media screen and (max-width: 768px) {
+  .chk__burger:checked + .burger + .entete__nav {
+    transform: translateX(0);
+  }
 }
 
 .global {
@@ -631,6 +651,7 @@ footer {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow-x: hidden;
 }
 .erreur404__contenu {
   max-width: 600px;

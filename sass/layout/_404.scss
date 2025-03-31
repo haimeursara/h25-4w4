@@ -1,14 +1,24 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .erreur404 {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  width: 100%;
+  width: 100vw; 
+  max-width: 100%;
   padding: 4rem 2rem;
   text-align: center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow-x: hidden;
 
   &__contenu {
     max-width: 600px;

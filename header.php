@@ -20,13 +20,15 @@
     ?>
   </figure>
 
-  <!-- Menu Burger -->
+
+  <input type="checkbox" id="chk__burger" class="chk__burger">
+
+
   <label for="chk__burger" class="burger">
     <img src="https://s2.svgbox.net/hero-outline.svg?ic=menu" alt="Menu" width="32" height="32">
   </label>
-  <input type="checkbox" id="chk__burger" class="chk__burger">
 
-  <!-- Navigation -->
+
   <nav class="entete__nav">
     <?php
       wp_nav_menu(array(
@@ -38,7 +40,7 @@
     ?>
   </nav>
 
-  <!-- Recherche -->
+
   <div class="entete__recherche">
     <?php get_search_form(); ?>
   </div>

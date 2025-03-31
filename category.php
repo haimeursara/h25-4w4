@@ -6,7 +6,6 @@ get_header();
 <main class="populaire">
     <div class="boite__flex global">
 
-        <!-- Titre dynamique selon le contexte -->
         <header class="populaire__header">
             <?php if (is_home() && !is_front_page()) : ?>
                 <h1 class="populaire__titre">Blog</h1>
