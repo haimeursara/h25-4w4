@@ -1,61 +1,30 @@
-$primary-color: rgb(198, 96, 2);
-$secondary-color: rgb(118, 57, 0);
-$accent-color: rgb(255, 170, 59);
-$text-color: rgb(70, 67, 62);
-$hover-color: rgb(150, 75, 0);
-$border-radius: 6px;
-$shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
-$transition: all 0.3s ease-in-out;
-
 .carte {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 320px;
-  margin: 2vh auto;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: $border-radius;
   background-color: #fff;
-  box-shadow: $shadow;
-  transition: $transition;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 400px;
+  margin: 1rem auto;
 
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
-  }
-
-  &--grande {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    gap: 5%;
-    padding: 15px;
-
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-    }
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
   }
 
   &__contenu {
-    text-align: center;
-    width: 100%;
-    margin-bottom: 1.5vh;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 10px;
+    gap: 1rem;
   }
 
-  // Image mise en avant
   &__image {
     width: 100%;
-    max-width: 280px;
-    aspect-ratio: 16 / 9;
-    border-radius: 8px;
+    height: 220px;
     overflow: hidden;
-    box-shadow: $shadow;
 
     img {
       width: 100%;
@@ -64,56 +33,61 @@ $transition: all 0.3s ease-in-out;
     }
   }
 
-  // Style des catégories associées
+  &__titre {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #4f3200;
+  }
+
+  &__description {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+  }
+
   &__categories {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    margin-top: 10px;
+    gap: 0.5rem;
 
     .carte__categorie {
-      background-color: $secondary-color;
-      color: white;
+      background-color: #f5f5f5;
+      padding: 0.3rem 0.8rem;
+      border-radius: 12px;
       font-size: 0.9rem;
-      padding: 5px 10px;
-      border-radius: $border-radius;
-      text-transform: uppercase;
-      font-weight: bold;
+      color: #333;
     }
   }
 
-  // Style pour les températures
-  &__temperature {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: $text-color;
-    font-weight: 500;
-
-    p {
-      margin: 2px 0;
-    }
-  }
-
-  // Bouton Voir Plus
   &__bouton {
-    width: 100%;
-    max-width: 250px;
-    padding: 12px;
-    margin-top: 1vh;
+    display: inline-block;
     text-align: center;
-    background-color: $accent-color;
-    color: white;
-    border: 2px solid $primary-color;
-    border-radius: $border-radius;
-    cursor: pointer;
-    font-weight: 600;
-    transition: $transition;
+    padding: 0.7rem 1.5rem;
+    background-color: #be6602;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease;
 
     &:hover {
-      background-color: $hover-color;
-      transform: translateY(-2px);
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      background-color: #532a01;
+    }
+
+    &--actif {
+      background-color: #4f3200;
+
+      &:hover {
+        background-color: #2e1d00;
+      }
+    }
+  }
+
+  // Responsive
+  @media screen and (max-width: 768px) {
+    max-width: 90%;
+    &__image {
+      height: 180px;
     }
   }
 }

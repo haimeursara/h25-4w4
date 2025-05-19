@@ -1,50 +1,46 @@
 <?php
+/**
+ * category.php – modèle des catégories
+ */
+get_header(); ?>
 
-get_header();
-?>
+<main>
+    <section class="destination">
+        <?php categorie_par_destination("Populaire"); ?>
+        <h2 class="destination__titre">Articles de la catégorie "<?php single_cat_title(); ?>"</h2>
 
-<main class="populaire">
-    <div class="boite__flex global">
+        <div class="destination__list">
+            <?php if (have_posts()) : ?>
+                <?php while (have_posts()) : the_post(); ?>
+                    <article class="carte carte--grande">
+                        <div class="carte__contenu">
+                            <?php if (has_post_thumbnail()) : ?>
+                                <figure class="carte__image">
+                                    <?php the_post_thumbnail('thumbnail', ['alt' => get_the_title()]); ?>
+                                </figure>
+                            <?php endif; ?>
 
-        <!-- Titre dynamique selon le contexte -->
-        <header class="populaire__header">
-            <?php if (is_home() && !is_front_page()) : ?>
-                <h1 class="populaire__titre">Blog</h1>
-            <?php elseif (is_category()) : ?>
-                <h1 class="populaire__titre">Catégorie : <?php single_cat_title(); ?></h1>
-            <?php elseif (is_tag()) : ?>
-                <h1 class="populaire__titre">Étiquette : <?php single_tag_title(); ?></h1>
-            <?php elseif (is_search()) : ?>
-                <h1 class="populaire__titre">Résultats de recherche pour : "<?php echo get_search_query(); ?>"</h1>
-            <?php elseif (is_archive()) : ?>
-                <h1 class="populaire__titre"><?php the_archive_title(); ?></h1>
+                            <h2 class="carte__titre"><?php the_title(); ?></h2>
+                            <p class="carte__description"><?php echo wp_trim_words(get_the_excerpt(), 20, "..."); ?></p>
+
+                            <div class="carte__categories">
+                                <?php
+                                $categories = get_the_category();
+                                foreach ($categories as $category) {
+                                    echo '<span class="carte__categorie">' . esc_html($category->name) . '</span> ';
+                                }
+                                ?>
+                            </div>
+
+                            <a class="carte__bouton carte__bouton--actif" href="<?php the_permalink(); ?>">Voir plus...</a>
+                        </div>
+                    </article>
+                <?php endwhile; ?>
             <?php else : ?>
-                <h1 class="populaire__titre">Articles récents</h1>
+                <p>Aucun article trouvé dans cette catégorie.</p>
             <?php endif; ?>
-        </header>
-
-        <!-- Vérifie si des articles existent -->
-        <?php if (have_posts()) : ?>
-            <?php while (have_posts()) : the_post(); ?>
-                <?php get_template_part("gabarit/carte"); ?>
-            <?php endwhile; ?>
-
-            <!-- Ajout de la pagination -->
-            <div class="pagination">
-                <?php
-                the_posts_pagination(array(
-                    'mid_size'  => 2,
-                    'prev_text' => __('&laquo; Précédent', 'textdomain'),
-                    'next_text' => __('Suivant &raquo;', 'textdomain'),
-                ));
-                ?>
-            </div>
-
-        <?php else : ?>
-            <p class="populaire__message">Aucun article trouvé.</p>
-        <?php endif; ?>
-
-    </div>
+        </div>
+    </section>
 </main>
 
 <?php get_footer(); ?>

@@ -113,4 +113,13 @@ function theme_tp_customize_register($wp_customize) {
         ]));
     }
 }
+function afficher_svg_footer($color = "#ffffff", $height = "80", $position = "bottom") {
+    echo '<div class="svg-separateur" style="position:relative; overflow:hidden;">
+        <svg viewBox="0 0 1440 320" width="100%" height="' . esc_attr($height) . '">
+            <path fill="' . esc_attr($color) . '" fill-opacity="1"
+                d="M0,64L48,69.3C96,75,192,85,288,101.3C384,117,480,139,576,154.7C672,171,768,181,864,165.3C960,149,1056,107,1152,90.7C1248,75,1344,85,1392,90.7L1440,96V320H0Z">
+            </path>
+        </svg>
+    </div>';
+}
 add_action('customize_register', 'theme_tp_customize_register');

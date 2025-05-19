@@ -7,10 +7,10 @@ get_header();
 
 <main>
 
-    <!-- SECTION HERO AVEC CARROUSEL BACKGROUND -->
+    <!-- SECTION HERO AVEC CARROUSEL EN BACKGROUND -->
     <section class="hero">
 
-        <!-- Carrousel dynamique -->
+        <!-- Carrousel dynamique en background -->
         <div class="hero__background">
             <?php
             $nb_images = get_theme_mod('hero_carrousel_number', 3);
@@ -24,7 +24,7 @@ get_header();
             <?php endfor; ?>
         </div>
 
-        <!-- Contenu affiché par-dessus le carrousel -->
+        <!-- Contenu Hero animé -->
         <div class="hero__contenu global">
             <h1 class="hero__titre">Voyager autrement avec UTOPIE Voyage!</h1>
             <p class="hero__description">
@@ -106,13 +106,12 @@ get_header();
         </div>
     </section>
 
-    <!-- SECTION DESTINATIONS -->
+    <!-- SECTION DESTINATIONS : catégories dynamiques -->
     <section class="destination">
-        <?php categories_liste("destination") ?>
+        <?php categorie_par_destination("Populaire"); ?>
         <h2 class="destination__titre">Articles de la catégorie</h2>
         <div class="destination__list"></div>
     </section>
 
 </main>
-
 <?php get_footer(); ?>

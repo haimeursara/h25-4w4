@@ -1,4 +1,5 @@
 <!-- Pied de page -->
+ <?php afficher_svg_footer("#4f3200", "100"); ?>
 <footer class="piedpage">
     <div class="piedpage__container global">
 
@@ -69,8 +70,15 @@
 
     </div>
 </footer>
+<?php if ($img = get_theme_mod('footer_image')): ?>
+    <div class="footer__image">
+        <img src="<?= esc_url($img); ?>" alt="Destination" />
+    </div>
+<?php endif; ?>
 
 <!-- Appels de scripts WordPress -->
 <?php wp_footer(); ?>
+<?php afficher_icones_sociaux(); ?>
+
 </body>
 </html>

@@ -42,98 +42,83 @@ Composants
 .carte {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 320px;
-  margin: 2vh auto;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
   background-color: #fff;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease-in-out;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 400px;
+  margin: 1rem auto;
 }
 .carte:hover {
-  transform: translateY(-3px);
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
-}
-.carte--grande {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  gap: 5%;
-  padding: 15px;
-}
-@media screen and (max-width: 768px) {
-  .carte--grande {
-    flex-direction: column;
-  }
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
 }
 .carte__contenu {
-  text-align: center;
-  width: 100%;
-  margin-bottom: 1.5vh;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 10px;
+  gap: 1rem;
 }
 .carte__image {
   width: 100%;
-  max-width: 280px;
-  aspect-ratio: 16/9;
-  border-radius: 8px;
+  height: 220px;
   overflow: hidden;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
 }
 .carte__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+.carte__titre {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #4f3200;
+}
+.carte__description {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
 .carte__categories {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
-  margin-top: 10px;
+  gap: 0.5rem;
 }
 .carte__categories .carte__categorie {
-  background-color: rgb(118, 57, 0);
-  color: white;
+  background-color: #f5f5f5;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
   font-size: 0.9rem;
-  padding: 5px 10px;
-  border-radius: 6px;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-.carte__temperature {
-  margin-top: 10px;
-  font-size: 1rem;
-  color: rgb(70, 67, 62);
-  font-weight: 500;
-}
-.carte__temperature p {
-  margin: 2px 0;
+  color: #333;
 }
 .carte__bouton {
-  width: 100%;
-  max-width: 250px;
-  padding: 12px;
-  margin-top: 1vh;
+  display: inline-block;
   text-align: center;
-  background-color: rgb(255, 170, 59);
-  color: white;
-  border: 2px solid rgb(198, 96, 2);
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease-in-out;
+  padding: 0.7rem 1.5rem;
+  background-color: #be6602;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
 }
 .carte__bouton:hover {
-  background-color: rgb(150, 75, 0);
-  transform: translateY(-2px);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #532a01;
+}
+.carte__bouton--actif {
+  background-color: #4f3200;
+}
+.carte__bouton--actif:hover {
+  background-color: #2e1d00;
+}
+@media screen and (max-width: 768px) {
+  .carte {
+    max-width: 90%;
+  }
+  .carte__image {
+    height: 180px;
+  }
 }
 
 .menu {
@@ -336,18 +321,29 @@ Composants
   }
 }
 
-/**
-bouton-categorie.scss ------------------------------ .categorie__ul
-*/
-.categorie__ul {
+.boutons-categories {
   display: flex;
-  gap: 5px;
-  list-style-type: none;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
-.categorie__ul__li {
-  padding: 3px;
-  border: 1px solid #aaa;
-  background-color: aquamarine;
+.boutons-categories .bouton-categorie {
+  background-color: #4f3200;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.boutons-categories .bouton-categorie a {
+  color: white;
+  text-decoration: none;
+}
+.boutons-categories .bouton-categorie:hover {
+  background-color: #be6602;
+  transform: scale(1.05);
 }
 
 /* /////////////////// 
@@ -812,4 +808,17 @@ html, body {
   align-items: center;
   color: white;
   text-shadow: 1px 1px 6px black;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero .hero__contenu .hero__contenu.anim-in {
+  animation: fadeInUp 1s ease-out forwards;
 }/*# sourceMappingURL=style.css.map */
