@@ -18,7 +18,10 @@
                 <!-- Contenu de l'article -->
                 <div class="carteSingle__temperature">
                     <?php the_content(); ?>
-                    
+                    <?php the_category(); ?>
+                    <?php  $tableau = get_the_category(); 
+                    // print_r ($tableau);
+                    ?>
                     <!-- Champs personnalisés pour la température -->
                     <?php if (get_field("temperature_minimale") || get_field("temperature_maximale")) : ?>
                         <p>Température minimale : <?php echo esc_html(get_field("temperature_minimale")); ?> °C</p>
