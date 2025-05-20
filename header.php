@@ -11,7 +11,6 @@
 <body>
 <header class="entete">
 
-  <!-- Logo -->
   <figure class="entete__logo">
     <?php
       if (function_exists('the_custom_logo') && has_custom_logo()) {
@@ -22,13 +21,12 @@
     ?>
   </figure>
 
-  <!-- Burger Menu -->
   <input type="checkbox" id="chk__burger" class="chk__burger" />
+
   <label for="chk__burger" class="burger" aria-label="Menu mobile">
     <img src="https://s2.svgbox.net/hero-outline.svg?ic=menu&color=fff" width="32" height="32" alt="Menu" />
   </label>
 
-  <!-- Navigation principale -->
   <nav class="entete__nav">
     <?php
       wp_nav_menu([
@@ -40,7 +38,6 @@
     ?>
   </nav>
 
-  <!-- Barre de recherche -->
   <div class="entete__recherche">
     <?php get_search_form(); ?>
   </div>
