@@ -108,8 +108,8 @@ get_header();
 
     <!-- SECTION DESTINATIONS : catégories dynamiques -->
     <section class="destination">
-        <?php categorie_par_destination("Populaire"); ?>
         <h2 class="destination__titre">Articles de la catégorie</h2>
+        <?php categorie_par_destination("Populaire"); ?>
         <div class="destination__list"></div>
     </section>
 

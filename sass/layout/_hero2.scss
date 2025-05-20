@@ -7,10 +7,9 @@
   text-align: center;
   overflow: hidden;
 
-  // Supprimer image statique
   background: none;
 
-  // Carrousel en background
+
   &__background {
     position: absolute;
     inset: 0;

@@ -1,6 +1,6 @@
 <?php
 
-// Chemin vers le dossier functions
+// === Chargement de fonctions additionnelles ===
 $functions_dir = get_template_directory() . '/functions/';
 $function_files = array('genere-boutons.php');
 
@@ -8,7 +8,7 @@ foreach ($function_files as $file) {
     include_once $functions_dir . $file;
 }
 
-// === SUPPORTS ===
+// === SUPPORTS DU THÈME ===
 function mon_theme_supports() {
     add_theme_support('title-tag');
     add_theme_support('menus');
@@ -19,10 +19,16 @@ function mon_theme_supports() {
         'flex-height' => true,
         'flex-width'  => true,
     ));
+
+    // ✅ Menus WordPress
+    register_nav_menus([
+        'principal' => __('Menu principal', 'theme_tp'),
+        'externe'   => __('Menu externe', 'theme_tp'),
+    ]);
 }
 add_action('after_setup_theme', 'mon_theme_supports');
 
-// === STYLES & JS ===
+// === ENQUEUE CSS/JS ===
 function theme_4w4_enqueue_styles() {
     wp_enqueue_style('normalize', get_template_directory_uri() . '/normalize.css');
     wp_enqueue_style('mon-style-style', get_stylesheet_uri());
@@ -45,7 +51,7 @@ function theme_4w4_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'theme_4w4_enqueue_styles');
 
-// === PAGE D'ACCUEIL : SEULEMENT CATÉGORIE POPULAIRE ===
+// === MODIFIE LA REQUÊTE DE L'ACCUEIL (POPULAIRE) ===
 function modifie_requete_principal($query) {
     if ($query->is_home() && $query->is_main_query() && !is_admin()) {
         $query->set('category_name', 'populaire');
@@ -57,6 +63,7 @@ add_action('pre_get_posts', 'modifie_requete_principal');
 
 // === CUSTOMIZER ===
 function theme_tp_customize_register($wp_customize) {
+    // Section HERO (exemple)
     $wp_customize->add_section('hero_section', array(
         'title' => __('Section Hero', 'theme_tp'),
         'priority' => 30,
@@ -83,7 +90,7 @@ function theme_tp_customize_register($wp_customize) {
         'section' => 'hero_section',
     )));
 
-    // === Hero Carrousel dynamique ===
+    // Section HERO CARROUSEL
     $wp_customize->add_section('hero_carrousel_section', [
         'title'    => __('Hero Carrousel', 'theme_tp'),
         'priority' => 31,
@@ -113,13 +120,25 @@ function theme_tp_customize_register($wp_customize) {
         ]));
     }
 }
-function afficher_svg_footer($color = "#ffffff", $height = "80", $position = "bottom") {
-    echo '<div class="svg-separateur" style="position:relative; overflow:hidden;">
-        <svg viewBox="0 0 1440 320" width="100%" height="' . esc_attr($height) . '">
-            <path fill="' . esc_attr($color) . '" fill-opacity="1"
-                d="M0,64L48,69.3C96,75,192,85,288,101.3C384,117,480,139,576,154.7C672,171,768,181,864,165.3C960,149,1056,107,1152,90.7C1248,75,1344,85,1392,90.7L1440,96V320H0Z">
+add_action('customize_register', 'theme_tp_customize_register');
+
+// === SVG ANIMÉ POUR FOOTER ===
+function afficher_svg_footer($color = "#3E2723", $height = "100") {
+    echo '<div class="svg-separateur" style="width:100%; height:' . esc_attr($height) . 'px; overflow:hidden; margin-bottom:-1px;">
+        <svg class="svg-vague" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <path fill="' . esc_attr($color) . '" fill-opacity="1">
+                <animate 
+                    attributeName="d"
+                    dur="8s"
+                    repeatCount="indefinite"
+                    values="
+                        M0,64L48,69.3C96,75,192,85,288,101.3C384,117,480,139,576,154.7C672,171,768,181,864,165.3C960,149,1056,107,1152,90.7C1248,75,1344,85,1392,90.7L1440,96V320H0Z;
+                        M0,96L60,101.3C120,107,240,117,360,122.7C480,128,600,128,720,144C840,160,960,192,1080,197.3C1200,203,1320,181,1380,170.7L1440,160V320H0Z;
+                        M0,64L48,69.3C96,75,192,85,288,101.3C384,117,480,139,576,154.7C672,171,768,181,864,165.3C960,149,1056,107,1152,90.7C1248,75,1344,85,1392,90.7L1440,96V320H0Z
+                    "
+                />
             </path>
         </svg>
     </div>';
 }
-add_action('customize_register', 'theme_tp_customize_register');
+

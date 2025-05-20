@@ -1,84 +1,65 @@
-<!-- Pied de page -->
- <?php afficher_svg_footer("#4f3200", "100"); ?>
+<?php afficher_svg_footer('#3E2723', '100'); ?>
+
 <footer class="piedpage">
-    <div class="piedpage__container global">
+  <div class="piedpage__container global">
 
-        <!-- Section principale du footer -->
-        <section class="piedpage__s1">
+    <div class="piedpage__s1">
 
-            <!-- Menu externe + recherche -->
-            <div class="piedpage__s1__menuRecherche">
-                <?php
-                wp_nav_menu(array(
-                    "theme_location"  => "externe",
-                    "container"       => "nav",
-                    "container_class" => "piedpage__s1__externe",
-                    "fallback_cb"     => false
-                ));
-                ?>
-                
-                <!-- Formulaire de recherche (Desktop) -->
-                <div class="piedpage__s1__adresse__recherche recherche__ordi">
-                    <?php get_search_form(); ?>
-                </div>
-            </div>
+      <!-- Bloc 1 : Coordonnées + menu externe -->
+      <div class="piedpage__bloc piedpage__infos">
+        <p class="piedpage__nom">HAIMEUR SARA</p>
+        <address class="piedpage__contact">
+          2901 rue Sherbrooke E<br>
+          123-456-7899<br>
+          <a href="mailto:info@cmaisonneuve.qc.ca">info@cmaisonneuve.qc.ca</a>
+        </address>
 
-            <!-- Coordonnées et réseaux sociaux -->
-            <div class="piedpage__s1__adresse">
-                <p class="piedpage__s1__coord">HAIMEUR SARA</p>
-                <p class="piedpage__s1__coord">
-                    2901 rue Sherbrooke E<br> 
-                    123-456-7899<br> 
-                    <a href="mailto:info@cmaisonneuve.qc.ca">info@cmaisonneuve.qc.ca</a>
-                </p> 
+        <!-- Menu externe -->
+        <nav class="footer__menu">
+          <?php
+            wp_nav_menu([
+              'theme_location' => 'externe',
+              'container' => false,
+              'menu_class' => 'menu menu--footer',
+              'fallback_cb' => false
+            ]);
+          ?>
+        </nav>
 
-                <!-- Icônes sociales avec accessibilité -->
-                <div class="piedpage__s1__icone-app">
-                    <a href="#" aria-label="Facebook">
-                        <img src="https://s2.svgbox.net/social.svg?ic=facebook&color=000000" width="20" height="20">
-                    </a>
-                    <a href="#" aria-label="LinkedIn">
-                        <img src="https://s2.svgbox.net/social.svg?ic=linkedin&color=000000" width="20" height="20">
-                    </a>
-                    <a href="#" aria-label="PayPal">
-                        <img src="https://s2.svgbox.net/social.svg?ic=paypal&color=000000" width="20" height="20">
-                    </a>
-                    <a href="#" aria-label="Stack Overflow">
-                        <img src="https://s2.svgbox.net/social.svg?ic=stackoverflow&color=000000" width="20" height="20">
-                    </a>
-                </div>  
-            </div>
+        <!-- Icônes dynamiques -->
+        <?php afficher_icones_sociaux(); ?>
+      </div>
 
-            <!-- Description de l'agence -->
-            <div class="piedpage__s1__description">
-                UTOPIE Voyage est bien plus qu’une simple agence de voyages : c’est une invitation à découvrir le monde autrement.
-                Que vous rêviez d’évasions insolites, de destinations paradisiaques ou d’expériences authentiques, nous créons des itinéraires sur mesure.
-                Avec UTOPIE Voyage, chaque voyage devient une exploration hors du commun, où confort, découverte et émerveillement se rencontrent.
-            </div>
+      <!-- Bloc 2 : Description -->
+      <div class="piedpage__bloc piedpage__description">
+        UTOPIE Voyage est bien plus qu’une simple agence de voyages : c’est une invitation à découvrir le monde autrement. Que vous rêviez d’évasions insolites, de destinations paradisiaques ou d’expériences authentiques, nous créons des itinéraires sur mesure.
+      </div>
 
-        </section>
-
-        <!-- Formulaire de recherche mobile -->
-        <div class="piedpage__s1__adresse__recherche recherche__cell">
-            <?php get_search_form(); ?>
-        </div>
-
-        <!-- Section bas de page (ex: mentions légales, copyright...) -->
-        <section class="piedpage__s2">
-            <p>&copy; <?php echo date('Y'); ?> UTOPIE Voyage. Tous droits réservés.</p>
-        </section>
-
+      <!-- Bloc 3 : Recherche desktop -->
+      <div class="piedpage__bloc piedpage__recherche recherche__ordi">
+        <?php get_search_form(); ?>
+      </div>
     </div>
+
+    <!-- Recherche mobile -->
+    <div class="piedpage__recherche recherche__cell">
+      <?php get_search_form(); ?>
+    </div>
+
+    <!-- Image personnalisée -->
+    <?php if ($img = get_theme_mod('footer_image')): ?>
+      <div class="footer__image">
+        <img src="<?= esc_url($img); ?>" alt="Image destination sélectionnée" />
+      </div>
+    <?php endif; ?>
+
+    <!-- Bas de page -->
+    <div class="piedpage__s2">
+      <p>&copy; <?= date('Y'); ?> UTOPIE Voyage – Tous droits réservés.</p>
+    </div>
+  </div>
 </footer>
-<?php if ($img = get_theme_mod('footer_image')): ?>
-    <div class="footer__image">
-        <img src="<?= esc_url($img); ?>" alt="Destination" />
-    </div>
-<?php endif; ?>
 
-<!-- Appels de scripts WordPress -->
 <?php wp_footer(); ?>
-<?php afficher_icones_sociaux(); ?>
-
 </body>
 </html>

@@ -6,7 +6,9 @@ $button-hover: #532a01;
 $button-border-radius: 8px;
 $transition: all 0.3s ease-in-out;
 $mobile-breakpoint: 800px;
-
+body {
+  background-color: #91673d63;             
+}
 .hero {
   position: relative;
   min-height: 100vh;
