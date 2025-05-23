@@ -1,19 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
   const pays = [
-    { nom: "France", id: 21 },
-    { nom: "États-Unis", id: 22 },
-    { nom: "Canada", id: 23 },
-    { nom: "Argentine", id: 24 },
-    { nom: "Chili", id: 25 },
-    { nom: "Belgique", id: 26 },
-    { nom: "Maroc", id: 27 },
-    { nom: "Mexique", id: 28 },
-    { nom: "Japon", id: 29 },
-    { nom: "Italie", id: 30 },
-    { nom: "Islande", id: 31 },
-    { nom: "Chine", id: 32 },
-    { nom: "Grèce", id: 33 },
-    { nom: "Suisse", id: 34 }
+    { nom: "France", id: 16 },
+    { nom: "États-Unis", id: 17 },
+    { nom: "Canada", id: 18 },
+    { nom: "Argentine", id: 19 },
+    { nom: "Chili", id: 20 },
+    { nom: "Belgique", id: 21 },
+    { nom: "Maroc", id: 22 },
+    { nom: "Mexique", id: 23 },
+    { nom: "Japon", id: 24 },
+    { nom: "Italie", id: 25 },
+    { nom: "Islande", id: 26 },
+    { nom: "Chine", id: 27 },
+    { nom: "Grèce", id: 28 },
+    { nom: "Suisse", id: 29 }
   ];
 
   const boutonContainer = document.querySelector(".pays__boutons");
@@ -35,7 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
     resultatContainer.innerHTML = "<p>Chargement...</p>";
 
     fetch(`/wp-json/wp/v2/posts?categories=${catID}&_embed`)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) throw new Error("API error");
+        return response.json();
+      })
       .then(data => {
         if (!data.length) {
           resultatContainer.innerHTML = "<p>Aucune destination trouvée.</p>";
@@ -48,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const titre = article.title.rendered;
           const lien = article.link;
           const extrait = article.excerpt.rendered;
-          const image = article._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/wp-content/themes/votre-theme/images/default.jpg";
+          const image = article._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/wp-content/themes/H25-4W4/images/hero.jpg";
 
           const bloc = document.createElement("article");
           bloc.className = "accordeon";
@@ -98,12 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  // Charger la France par défaut
-  chargerDestinations(21);
+  // Charger la France (ID 16) par défaut
+  chargerDestinations(16);
 });
-function toggleAccordion(button) {
-  const content = button.nextElementSibling;
-  button.classList.toggle('active');
-  content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + 'px';
-}
-

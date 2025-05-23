@@ -882,4 +882,29 @@ html, body {
   padding: 4rem 2rem;
   max-width: 900px;
   margin: auto;
+}
+.page-pays__galerie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+  justify-items: center;
+}
+.page-pays__galerie figure {
+  width: 150px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+.page-pays__galerie figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+.page-pays__galerie figure img:hover {
+  transform: scale(1.05);
 }/*# sourceMappingURL=style.css.map */
