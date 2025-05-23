@@ -1,43 +1,36 @@
-.accordeon {
-  background: #fff5e1;
-  margin-bottom: 2rem;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.accordeon__header {
-  background: #FFCA28;
-  padding: 1rem;
-}
-
-.accordeon__bouton {
-  background: none;
-  border: none;
-  font-weight: bold;
-  font-size: 1.1rem;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-}
-
-.accordeon__contenu {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
+.pays__boutons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem auto;
   padding: 0 1rem;
+  max-width: 900px;
+
+  button {
+    background-color: #FFCA28;
+    color: #4f3200;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+
+    &:hover {
+      background-color: darken(#FFCA28, 10%);
+      transform: scale(1.05);
+    }
+
+    &.active {
+      background-color: #4f3200;
+      color: #fff;
+    }
+  }
 }
 
-.accordeon__texte {
-  margin: 1rem 0;
-}
-
-.accordeon__lien {
-  display: inline-block;
-  margin-bottom: 1rem;
-  color: #4f3200;
-  text-decoration: underline;
-}
 
 .page-pays {
   background-color: #fff5e1;

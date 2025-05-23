@@ -1,40 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
   const pays = [
-    { nom: "France", id: 16 },
-    { nom: "États-Unis", id: 17 },
-    { nom: "Canada", id: 18 },
-    { nom: "Argentine", id: 19 },
-    { nom: "Chili", id: 20 },
-    { nom: "Belgique", id: 21 },
-    { nom: "Maroc", id: 22 },
-    { nom: "Mexique", id: 23 },
-    { nom: "Japon", id: 24 },
-    { nom: "Italie", id: 25 },
-    { nom: "Islande", id: 26 },
-    { nom: "Chine", id: 27 },
-    { nom: "Grèce", id: 28 },
-    { nom: "Suisse", id: 29 }
+    "France", "États-Unis", "Canada", "Argentine", "Chili",
+    "Belgique", "Maroc", "Mexique", "Japon", "Italie",
+    "Islande", "Chine", "Grèce", "Suisse"
   ];
 
   const boutonContainer = document.querySelector(".pays__boutons");
   const resultatContainer = document.querySelector(".pays__resultats");
 
-  pays.forEach(p => {
+  pays.forEach(nom => {
     const bouton = document.createElement("button");
-    bouton.textContent = p.nom;
+    bouton.textContent = nom;
     bouton.classList.add("bouton-categorie");
-    bouton.dataset.category_id = p.id;
+    bouton.dataset.nom = nom;
+
     bouton.addEventListener("click", e => {
       e.preventDefault();
-      chargerDestinations(p.id);
+      document.querySelectorAll(".bouton-categorie").forEach(b => b.classList.remove("active"));
+      bouton.classList.add("active");
+      chargerDestinations(nom);
     });
+
     boutonContainer.appendChild(bouton);
   });
 
-  function chargerDestinations(catID) {
+  function chargerDestinations(nomPays) {
     resultatContainer.innerHTML = "<p>Chargement...</p>";
 
-    fetch(`/wp-json/wp/v2/posts?categories=${catID}&_embed`)
+    fetch(`/wp-json/wp/v2/posts?search=${encodeURIComponent(nomPays)}&_embed`)
       .then(response => {
         if (!response.ok) throw new Error("API error");
         return response.json();
@@ -51,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const titre = article.title.rendered;
           const lien = article.link;
           const extrait = article.excerpt.rendered;
-          const image = article._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/wp-content/themes/H25-4W4/images/hero.jpg";
+          const image = article._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/wp-content/themes/TONTHEME/images/hero.jpg";
 
           const bloc = document.createElement("article");
           bloc.className = "accordeon";
@@ -96,11 +89,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       })
       .catch(error => {
-        console.error("Erreur API REST :", error);
+        console.error("Erreur API :", error);
         resultatContainer.innerHTML = "<p>Erreur lors du chargement des destinations.</p>";
       });
   }
 
-  // Charger la France (ID 16) par défaut
-  chargerDestinations(16);
+  // Chargement initial de la France
+  chargerDestinations("France");
 });
+
+document.querySelectorAll(".bouton-categorie").forEach(btn => {
+  btn.classList.remove("active");
+});
+bouton.classList.add("active");
+

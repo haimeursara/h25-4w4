@@ -25,10 +25,10 @@ wp_enqueue_style('mon-style-style', get_stylesheet_uri());
 
 wp_enqueue_script(
 'destination_restapi',
-get_template_directory_uri() . '/js/destination.js',
+get_template_directory_uri() . '/js/destinations.js',
 array(),
 filemtime(get_template_directory() . 
-'/js/destination.js'),
+'/js/destinations.js'),
 true
 );
 wp_enqueue_script(
