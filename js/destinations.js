@@ -1,64 +1,109 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const boutons = document.querySelectorAll(".bouton-categorie");
-  const zoneArticles = document.querySelector(".destination__list");
+  const pays = [
+    { nom: "France", id: 21 },
+    { nom: "États-Unis", id: 22 },
+    { nom: "Canada", id: 23 },
+    { nom: "Argentine", id: 24 },
+    { nom: "Chili", id: 25 },
+    { nom: "Belgique", id: 26 },
+    { nom: "Maroc", id: 27 },
+    { nom: "Mexique", id: 28 },
+    { nom: "Japon", id: 29 },
+    { nom: "Italie", id: 30 },
+    { nom: "Islande", id: 31 },
+    { nom: "Chine", id: 32 },
+    { nom: "Grèce", id: 33 },
+    { nom: "Suisse", id: 34 }
+  ];
 
-  // Fonction de chargement des articles d'une catégorie
+  const boutonContainer = document.querySelector(".pays__boutons");
+  const resultatContainer = document.querySelector(".pays__resultats");
+
+  pays.forEach(p => {
+    const bouton = document.createElement("button");
+    bouton.textContent = p.nom;
+    bouton.classList.add("bouton-categorie");
+    bouton.dataset.category_id = p.id;
+    bouton.addEventListener("click", e => {
+      e.preventDefault();
+      chargerDestinations(p.id);
+    });
+    boutonContainer.appendChild(bouton);
+  });
+
   function chargerDestinations(catID) {
-    zoneArticles.innerHTML = "<p>Chargement...</p>";
+    resultatContainer.innerHTML = "<p>Chargement...</p>";
 
     fetch(`/wp-json/wp/v2/posts?categories=${catID}&_embed`)
       .then(response => response.json())
       .then(data => {
-        if (data.length === 0) {
-          zoneArticles.innerHTML = "<p>Aucune destination trouvée.</p>";
+        if (!data.length) {
+          resultatContainer.innerHTML = "<p>Aucune destination trouvée.</p>";
           return;
         }
 
-        let html = "";
+        resultatContainer.innerHTML = "";
 
         data.forEach(article => {
           const titre = article.title.rendered;
           const lien = article.link;
-          const excerpt = article.excerpt.rendered;
-          const img = article._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/wp-content/themes/votre-theme/images/default.jpg";
+          const extrait = article.excerpt.rendered;
+          const image = article._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/wp-content/themes/votre-theme/images/default.jpg";
 
-          html += `
-            <article class="accordeon">
-              <div class="accordeon__header">
-                <button class="accordeon__bouton">${titre}</button>
-              </div>
-              <div class="accordeon__contenu">
-                <img src="${img}" alt="${titre}" />
-                <div class="accordeon__texte">${excerpt}</div>
-                <a href="${lien}" class="accordeon__lien">Voir plus</a>
-              </div>
-            </article>
-          `;
-        });
+          const bloc = document.createElement("article");
+          bloc.className = "accordeon";
 
-        zoneArticles.innerHTML = html;
+          const header = document.createElement("div");
+          header.className = "accordeon__header";
 
-        // Active accordéons
-        document.querySelectorAll(".accordeon__bouton").forEach(button => {
-          button.addEventListener("click", () => {
-            const contenu = button.parentElement.nextElementSibling;
-            button.classList.toggle("active");
+          const bouton = document.createElement("button");
+          bouton.className = "accordeon__bouton";
+          bouton.textContent = titre;
+
+          const contenu = document.createElement("div");
+          contenu.className = "accordeon__contenu";
+          contenu.style.maxHeight = null;
+
+          const img = document.createElement("img");
+          img.src = image;
+          img.alt = titre;
+
+          const texte = document.createElement("div");
+          texte.className = "accordeon__texte";
+          texte.innerHTML = extrait;
+
+          const lienPlus = document.createElement("a");
+          lienPlus.href = lien;
+          lienPlus.textContent = "Voir plus";
+          lienPlus.className = "accordeon__lien";
+
+          contenu.appendChild(img);
+          contenu.appendChild(texte);
+          contenu.appendChild(lienPlus);
+
+          header.appendChild(bouton);
+          bloc.appendChild(header);
+          bloc.appendChild(contenu);
+          resultatContainer.appendChild(bloc);
+
+          bouton.addEventListener("click", () => {
+            bouton.classList.toggle("active");
             contenu.style.maxHeight = contenu.style.maxHeight ? null : contenu.scrollHeight + "px";
           });
         });
       })
       .catch(error => {
-        zoneArticles.innerHTML = "<p>Erreur de chargement.</p>";
         console.error("Erreur API REST :", error);
+        resultatContainer.innerHTML = "<p>Erreur lors du chargement des destinations.</p>";
       });
   }
 
-  // Gérer les clics sur les boutons
-  boutons.forEach(bouton => {
-    bouton.addEventListener("click", e => {
-      e.preventDefault();
-      const catID = bouton.dataset.category_id;
-      chargerDestinations(catID);
-    });
-  });
+  // Charger la France par défaut
+  chargerDestinations(21);
 });
+function toggleAccordion(button) {
+  const content = button.nextElementSibling;
+  button.classList.toggle('active');
+  content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + 'px';
+}
+

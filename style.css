@@ -828,4 +828,58 @@ html, body {
 }
 .hero .hero__contenu .hero__contenu.anim-in {
   animation: fadeInUp 1s ease-out forwards;
+}
+
+.accordeon {
+  background: #fff5e1;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.accordeon__header {
+  background: #FFCA28;
+  padding: 1rem;
+}
+
+.accordeon__bouton {
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.accordeon__contenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 1rem;
+}
+
+.accordeon__texte {
+  margin: 1rem 0;
+}
+
+.accordeon__lien {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #4f3200;
+  text-decoration: underline;
+}
+
+.page-pays {
+  background-color: #fff5e1;
+}
+.page-pays__restapi {
+  background-color: #d0f2d4;
+  padding: 4rem 2rem;
+}
+.page-pays__intro {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: auto;
 }/*# sourceMappingURL=style.css.map */

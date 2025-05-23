@@ -141,4 +141,22 @@ function afficher_svg_footer($color = "#3E2723", $height = "100") {
         </svg>
     </div>';
 }
+function creer_vague($couleur_haut, $couleur_bas) {
+  echo '
+    <div style="background:' . esc_attr($couleur_bas) . '; position: relative;">
+      <svg viewBox="0 0 1440 320" preserveAspectRatio="none" style="display:block; width:100%; height:80px; background:' . esc_attr($couleur_haut) . '">
+        <path fill="' . esc_attr($couleur_bas) . '" fill-opacity="1"
+          d="M0,160L60,144C120,128,240,96,360,117.3C480,139,600,213,720,229.3C840,245,960,203,1080,181.3C1200,160,1320,160,1380,160L1440,160V320H0Z">
+        </path>
+      </svg>
+    </div>';
+}
+wp_enqueue_script(
+  'destination_restapi',
+  get_template_directory_uri() . '/js/destinations.js',
+  [],
+  filemtime(get_template_directory() . '/js/destinations.js'),
+  true
+);
+
 
